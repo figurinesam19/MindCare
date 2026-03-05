@@ -1,3 +1,5 @@
+# Projet MindCare
+
 Ce repo github permettra de centraliser la documentation du projet Mindcare.
 
 Ici vous trouverez :
