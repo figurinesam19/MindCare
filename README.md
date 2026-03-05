@@ -6,3 +6,5 @@ Ici vous trouverez :
 - Les mentions légales
 - Les CGU
 - La politique de confidentialité
+
+Lien vers la syntaxe markdown : https://www.markdownguide.org/cheat-sheet/
