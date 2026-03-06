@@ -19,8 +19,6 @@ Ces textes sont désignés ensemble comme les « Lois relatives à la Protection
 Vos données à caractère personnel peuvent être collectées à travers divers moyens :
 1. L’application web MindCare (PWA) ;
 2. Le site internet www.mindcare-project.fr
-3. Les questionnaires d'auto-évaluation et formulaires de contact
-4. Les échanges directs avec nos services ou nos partenaires d'orientation.
 ## Notre Programme de  Protection
 Nous avons mis en place un programme de protection des données strict, incluant les principes du RGPD. Ce programme comprend notamment :
 - **Garantie d'Anonymat** : L'adoption de procédures internes visant à minimiser la collecte de données identifiantes au strict nécessaire.
