@@ -43,6 +43,7 @@ En cas d'urgence vitale, l'utilisateur s'engage à contacter les services de sec
 7.1 Les outils logiciels (code, interface, design système) et contenus (podcasts, textes, infographies) mis en œuvre dans l’Application demeurent la propriété pleine et entière de la société MindCare.
 7.2 Vous vous interdisez de copier, reproduire, représenter, ou décompiler de quelque manière que ce soit l'Application.
 
+
 **8. Données à caractère personnel et Données de Santé**
 
 8.1 Nous collectons, traitons et protégeons vos données conformément au Règlement Général européen sur la Protection des Données (RGPD) et à la Loi Informatique et Libertés.
