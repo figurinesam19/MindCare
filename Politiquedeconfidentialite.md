@@ -1,7 +1,7 @@
 ## Politique de confidentialité
 MindCare attache une importance capitale à la protection de la vie privée et des données de ses utilisateurs.
 ## 1. Qui sommes-nous ?
-« MindCare » ou « nous » désigne la société MindCare, société par actions simplifiée (SAS) dont le siège social est situé au Ynov Campus, 2 Esplanade de la Gare, 33110 Le Bouscat, immatriculée au Registre du Commerce et des sociétés de Bordeaux sous le numéro [Numéro SIREN 453 980 742 120 347, ainsi que tout organisme affilié à MindCare.
+« MindCare » ou « nous » désigne la société MindCare, société par actions simplifiée (SAS) dont le siège social est situé au Ynov Campus, 2 Esplanade de la Gare, 33110 Le Bouscat, immatriculée au Registre du Commerce et des sociétés de Bordeaux sous le numéro [Numéro SIREN 453 980 742 120 347], ainsi que tout organisme affilié à MindCare.
 ## 2. Notre Mission
 La vocation de MindCare est de promouvoir la santé mentale et le bien-être de la communauté étudiante, en facilitant l'accès à l'auto-évaluation et à l'orientation vers des structures de soin et de soutien spécialisées. Nous agissons pour lever les tabous liés à la détresse psychologique en milieu universitaire.
 ## 3.Droits des Étudiants et Jeunes Adultes
