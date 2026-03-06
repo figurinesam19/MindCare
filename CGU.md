@@ -16,6 +16,7 @@ Avant d’utiliser l’Application, vous devez d’abord lire les CGU, les accep
 2.2 Si vous choisissez d'utiliser les fonctionnalités avancées (sauvegarde de la progression), un système de code secret local ou un identifiant pseudonymisé pourra vous être attribué. Vous reconnaissez que cet identifiant est le seul moyen permettant de retrouver votre historique. Vous êtes seul responsable de la conservation de cet identifiant.
 
 2.3 Nous ne sommes en aucun cas responsables de la perte de vos données de progression si vous effacez le cache de votre navigateur ou perdez votre identifiant pseudonymisé, aucune donnée n'étant rattachée à votre identité réelle sur nos serveurs.
+
 **3. Durée de l’utilisation**
 
 3.1. L’utilisation de la plateforme applicative prend effet à compter de la date de votre premier accès. L'utilisation est à durée indéterminée et peut être interrompue par vous à tout moment, en fermant l'Application et en supprimant les données locales de votre navigateur.
