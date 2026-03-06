@@ -17,7 +17,7 @@ La loi n° 78-17 du 6 janvier 1978 modifiée (dite « Loi Informatique et Libert
 Ces textes sont désignés ensemble comme les « Lois relatives à la Protection des Données ».
 ## 5.Collecte des données
 Vos données à caractère personnel peuvent être collectées à travers divers moyens :
-1. L’application web MindCare (PWA) ;
+1. Lors de votre inscription anonyme sur l’application web MindCare (PWA) ;
 2. Le site internet www.mindcare-project.fr
 ## Notre Programme de  Protection
 Nous avons mis en place un programme de protection des données strict, incluant les principes du RGPD. Ce programme comprend notamment :
