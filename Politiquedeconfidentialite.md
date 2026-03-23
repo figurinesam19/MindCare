@@ -44,4 +44,3 @@ Conformément aux Lois relatives à la Protection des Données, vous disposez d'
 - **Nom** : Samuel Artur
 - **Email** : samuel@mindcare.com
 **Courrier** : MindCare SAS – À l'attention du DPO – 2 Esplanade de la Gare, 33110 Le Bouscat.
-**Il faut absolument réussir ce projet**
