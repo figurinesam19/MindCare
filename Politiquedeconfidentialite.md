@@ -24,10 +24,7 @@ Nous avons mis en place un programme de protection des données strict, incluant
 - **Garantie d'Anonymat** : L'adoption de procédures internes visant à minimiser la collecte de données identifiantes au strict nécessaire.
 - **Sécurité Technique** : La mise en œuvre de mesures organisationnelles appropriées (chiffrement, stockage local) permettant d'appliquer les principes de protection dès la conception (Privacy by Design).
 -**Délégué à la Protection des Données** : La désignation d’un Délégué à la Protection des Données (DPO) chargé de vérifier en permanence la conformité de nos traitements avec les Lois relatives à la Protection des Données.
-## Analyse Critique
-- **Le point de vigilance juridique** : Pour un projet comme MindCare, la simple mention du RGPD ne suffit pas. Étant donné que vous traitez des données liées à la santé mentale (anxiété, dépression, dysphorie), vous manipulez des données sensibles (Article 9 du RGPD). La loi impose des mesures de sécurité bien plus lourdes, comme l'utilisation d'un hébergeur certifié HDS (Hébergement de Données de Santé).
-- **L'adresse au Bouscat** : En situant le siège chez Ynov Campus, vous agissez sous un régime de domiciliation. Il faudra s'assurer que les courriers officiels de la CNIL puissent y être réceptionnés.
-- **Manque d'information** : Pour que ce texte soit parfaitement honnête, il manque la mention de la durée de conservation des données et la liste précise des destinataires (ex: les assos comme Nightline reçoivent-elles des données ou est-ce l'utilisateur qui fait la démarche ?).
+
 ## Durée de conservation des données
 Nous ne conservons vos données que pour la durée nécessaire aux finalités pour lesquelles elles ont été collectées :
 - **Données d'auto-évaluation (Anonymes)** : Conservées pendant 24 mois à des fins de statistiques de santé publique, sauf si vous demandez une suppression immédiate.
