@@ -1,3 +1,4 @@
+```js
 import { useState, useEffect } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
@@ -240,3 +241,4 @@ addPropertyControls(MentalHealthPodcasts, {
         defaultValue: 5,
     },
 })
+```
