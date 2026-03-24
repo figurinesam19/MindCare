@@ -11,7 +11,7 @@ import { addPropertyControls, ControlType } from "framer"
 const AIRTABLE_PAT =
     "..."
 const AIRTABLE_BASE_ID = "..."
-const AIRTABLE_TABLE = "User"
+const AIRTABLE_TABLE = "..."
 // ────────────────────────────────────────────────────────────
 
 const STEPS = [
