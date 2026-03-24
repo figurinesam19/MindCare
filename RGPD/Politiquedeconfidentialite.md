@@ -22,13 +22,9 @@ Ces textes sont désignés ensemble comme les « Lois relatives à la Protection
 Le traitement de vos données sensibles (santé) repose exclusivement sur votre consentement explicite (Article 9 du RGPD), recueilli lors de la soumission des questionnaires d'auto-évaluation.
 
 **5. Collecte des données**
-Vos données à caractère personnel sont collectées lors de votre utilisation de l’application web MindCare (PWA) et du site internet www.mindcare-project.fr. Nous collectons strictement les données suivantes :
+Vos données à caractère personnel sont collectées lors de votre utilisation de l’application web MindCare (PWA). Nous collectons strictement les données suivantes :
 
 Données d'identité et de contact : Pseudonyme, âge,adresse e-mail,Localisation
-
-Données de santé : Réponses fournies lors des questionnaires d'auto-évaluation (niveau de stress, humeur).
-
-Données techniques : Type de navigateur web utilisé (à des fins de compatibilité d'affichage). Aucun cookie de traçage publicitaire n'est utilisé.
 
 **6. Notre Programme de Protection**
 Nous avons mis en place un programme de protection des données strict, incluant les principes du RGPD. Ce programme comprend notamment :
@@ -40,7 +36,7 @@ Délégué à la Protection des Données : La désignation d’un Délégué à 
 **7. Durée de conservation des données**
 Nous ne conservons vos données que pour la durée nécessaire aux finalités pour lesquelles elles ont été collectées :
 
-Données d'auto-évaluation et d'identité : Conservées pendant 24 mois sur nos serveurs sécurisés, sauf si vous exercez votre droit à l'effacement avant cette échéance.
+Données d'inscription : Conservées pendant 24 mois sur nos serveurs sécurisés, sauf si vous exercez votre droit à l'effacement avant cette échéance.
 
 Logs de connexion : Conservés 1 an conformément aux obligations légales de sécurité.
 
