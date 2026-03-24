@@ -1,4 +1,4 @@
-// ============================================================
+```js // ============================================================
 //  MultiStepForm.tsx — Framer Code Component
 //  Formulaire 3 étapes → Airtable (Personal Access Token)
 //  Design : MindCare — violet #7B2D8B, jaune #F5A623, fond crème
@@ -529,3 +529,4 @@ addPropertyControls(MultiStepForm, {
         defaultValue: "DM Sans, system-ui, sans-serif",
     },
 })
+```
