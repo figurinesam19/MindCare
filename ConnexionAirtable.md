@@ -9,8 +9,8 @@ import { addPropertyControls, ControlType } from "framer"
 
 // ─── À CONFIGURER ───────────────────────────────────────────
 const AIRTABLE_PAT =
-    "patg4pydWSJAvkHhr.81aa619bbca203793b7db74c3b2aec687c6a6270b48ef336270125618ef57a1e"
-const AIRTABLE_BASE_ID = "appE7rsiGhJkNvSe8"
+    "..."
+const AIRTABLE_BASE_ID = "..."
 const AIRTABLE_TABLE = "User"
 // ────────────────────────────────────────────────────────────
 
