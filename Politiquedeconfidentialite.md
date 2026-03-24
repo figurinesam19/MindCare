@@ -24,7 +24,7 @@ Le traitement de vos données sensibles (santé) repose exclusivement sur votre 
 **5. Collecte des données**
 Vos données à caractère personnel sont collectées lors de votre utilisation de l’application web MindCare (PWA) et du site internet www.mindcare-project.fr. Nous collectons strictement les données suivantes :
 
-Données d'identité et de contact : Nom, prénom, âge, et adresse e-mail.
+Données d'identité et de contact : Pseudonyme, âge,adresse e-mail,Localisation
 
 Données de santé : Réponses fournies lors des questionnaires d'auto-évaluation (niveau de stress, humeur).
 
