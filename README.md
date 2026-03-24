@@ -2,11 +2,15 @@
 
 Ce repo github permettra de centraliser la documentation du projet Mindcare.
 
-Ici vous trouverez :
-- Les mentions légales
-- Les CGU
-- La politique de confidentialité
-- Connexion APi spotify
-- Connexion API Airtable
+**Ici, vous trouverez deux dossiers :**
 
-Lien vers la syntaxe markdown : https://www.markdownguide.org/cheat-sheet/
+**RGPD :**
+  • Mentions légales  
+  • CGU  
+  • Politique de confidentialité  
+
+**Connexion des clés API :** 
+  • API Spotify  
+  • API Airtable  
+
+**Lien vers la syntaxe markdown :** https://www.markdownguide.org/cheat-sheet/
