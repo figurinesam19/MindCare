@@ -3,8 +3,8 @@ import { useState, useEffect } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
 // Configuration (À remplacer par vos vrais identifiants)
-const CLIENT_ID = "VOTRE_CLIENT_ID"
-const CLIENT_SECRET = "VOTRE_CLIENT_SECRET"
+const CLIENT_ID = "52e4cad9a2554fa79baa063119be89cb"
+const CLIENT_SECRET = "6dd493ab12eb407890d4b06a0d8875eb"
 
 export default function MentalHealthPodcasts(props) {
     const { searchTerm, limit } = props
