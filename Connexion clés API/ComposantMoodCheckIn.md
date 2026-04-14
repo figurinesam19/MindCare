@@ -8,7 +8,7 @@ import { addPropertyControls, ControlType } from "framer"
 // Remplace ceci par l'URL du Webhook Custom généré dans Make
 const MAKE_WEBHOOK_URL =
     "..."
-// ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+// 
 
 const STEPS = [
     {
