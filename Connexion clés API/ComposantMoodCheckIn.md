@@ -8,9 +8,7 @@ import { addPropertyControls, ControlType } from "framer"
 // Remplace ceci par l'URL du Webhook Custom généré dans Make
 const MAKE_WEBHOOK_URL =
     "..."
-// 
-
-const STEPS = [
+// const STEPS = [
     {
         label: "Étape 1 / 2",
         title: "Ton état du jour",
