@@ -1,31 +1,36 @@
-//  MindCare Ressources — Design Maquette Stricte
-//  Couleur Jaune (#E6AD1A) pour les filtres et badges
-// ============================================================
+// MindCare Ressources — Navigation CMS Framer
 import { useState, useEffect } from "react"
 import { addPropertyControls, ControlType } from "framer"
 
-// ─── CONFIGURATION AIRTABLE ─────────────────────────────────
-const AIRTABLE_PAT = "TON_TOKEN_LECTURE_SEULE" 
-const AIRTABLE_BASE_ID = "TA_BASE_ID"
-const AIRTABLE_TABLE = "Ressources" 
-// ────────────────────────────────────────────────────────────
+const AIRTABLE_PAT =
+    "..."
+const AIRTABLE_BASE_ID = "..."
+const AIRTABLE_TABLE = "contenu positif"
 
 const FILTERS = [
-    { label: "Toutes", icon: "" },
-    { label: "Podcasts", icon: "🎧" },
-    { label: "Exercices", icon: "📄" },
-    { label: "Articles", icon: "📄" },
-    { label: "Témoignages", icon: "✨" } 
+    { label: "Toutes" },
+    { label: "Exercices" },
+    { label: "Articles" },
+    { label: "Témoignage" },
 ]
+
+const toSlug = (titre) =>
+    titre
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9\s-]/g, "")
+        .trim()
+        .replace(/\s+/g, "-")
 
 export default function ResourceCenter({ accentColor, activeFilterColor }) {
     const [resources, setResources] = useState([])
     const [activeFilter, setActiveFilter] = useState("Toutes")
     const [status, setStatus] = useState("loading")
 
-    const JAUNE = activeFilterColor || "#E6AD1A" // Ta nouvelle couleur Jaune
-    const ORANGE = accentColor || "#D8A03E" 
-    const BG_COLOR = "#F6F5F0" 
+    const JAUNE = activeFilterColor || "#E6AD1A"
+    const ORANGE = accentColor || "#D8A03E"
+    const BG_COLOR = "#F8F8F8"
     const TEXT = "#1A1A1A"
     const MUTED = "#7A7A7A"
 
@@ -37,27 +42,25 @@ export default function ResourceCenter({ accentColor, activeFilterColor }) {
         try {
             const res = await fetch(
                 `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${encodeURIComponent(AIRTABLE_TABLE)}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${AIRTABLE_PAT}`,
-                    },
-                }
+                { headers: { Authorization: `Bearer ${AIRTABLE_PAT}` } }
             )
             if (!res.ok) throw new Error("Erreur de chargement")
             const data = await res.json()
-            
-            const formattedData = data.records.map(record => ({
+
+            const formattedData = data.records.map((record) => ({
                 id: record.id,
                 titre: record.fields.titre || "Ressource",
-                typeContenu: record.fields["Type de contenu"] || "Articles", 
-                statut: record.fields.statut || "", 
+                typeContenu: record.fields["Type de contenu"] || "Articles",
+                statut: record.fields.statut || "",
                 description: record.fields.description || "",
                 sourceURL: record.fields.sourceURL || "",
                 lieu: record.fields.Lieu || "En ligne",
                 horaires: record.fields.Horaires || "Toujours disponible",
-                tags: ["Santé Mentale", "Gratuit"] 
+                tags: record.fields.tags
+                    ? record.fields.tags.split(",").map((t) => t.trim())
+                    : ["Santé Mentale", "Gratuit"],
             }))
-            
+
             setResources(formattedData)
             setStatus("success")
         } catch (error) {
@@ -66,104 +69,271 @@ export default function ResourceCenter({ accentColor, activeFilterColor }) {
         }
     }
 
-    const filteredResources = activeFilter === "Toutes" 
-        ? resources 
-        : resources.filter(r => r.typeContenu === activeFilter)
+    const filteredResources =
+        activeFilter === "Toutes"
+            ? resources
+            : resources.filter((r) => r.typeContenu === activeFilter)
+
+    const iconForType = (type) => {
+        const map = {
+            Podcasts: "🎙",
+            Exercices: "🧘",
+            Articles: "📖",
+            Témoignages: "✨",
+            "Contenu Positif": "⭐",
+        }
+        return map[type] || "✦"
+    }
 
     const s = {
-        container: { padding: "20px", fontFamily: "'DM Sans', sans-serif", width: "100%", maxWidth: 500, margin: "0 auto", background: BG_COLOR, minHeight: "100vh" },
-        
-        filtersContainer: { background: "#FFF", borderRadius: "16px", padding: "16px", marginBottom: "24px", boxShadow: "0px 2px 10px rgba(0,0,0,0.02)" },
-        filtersWrap: { display: "flex", flexWrap: "wrap", gap: "10px" },
-        filterChip: (isActive) => ({
-            padding: "8px 16px",
+        container: {
+            fontFamily: "'DM Sans', sans-serif",
+            width: "100%",
+            maxWidth: 430,
+            margin: "0 auto",
+            background: BG_COLOR,
+            minHeight: "100vh",
+        },
+        header: {
+            display: "flex",
+            alignItems: "center",
+            gap: "12px",
+            padding: "20px 20px 12px 20px",
+            background: BG_COLOR,
+        },
+        backButton: {
+            width: 36,
+            height: 36,
+            borderRadius: "50%",
+            background: "#FFF",
+            border: "1px solid #EAEAEA",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            cursor: "pointer",
+            fontSize: "16px",
+            color: TEXT,
+            flexShrink: 0,
+        },
+        headerText: {
+            display: "flex",
+            flexDirection: "column",
+            gap: "2px",
+        },
+        headerTitle: {
+            fontSize: "22px",
+            fontWeight: 700,
+            color: TEXT,
+            margin: 0,
+        },
+        headerSubtitle: {
+            fontSize: "13px",
+            color: MUTED,
+            margin: 0,
+        },
+        banner: {
+            margin: "0 16px 16px 16px",
+            background: "#F5EDD8",
             borderRadius: "20px",
+            padding: "20px",
+        },
+        bannerTitle: {
+            fontSize: "17px",
+            fontWeight: 700,
+            color: TEXT,
+            margin: "0 0 8px 0",
+        },
+        bannerText: {
+            fontSize: "14px",
+            color: "#5A5040",
+            lineHeight: 1.5,
+            margin: 0,
+        },
+        filtersContainer: {
+            background: "#FFF",
+            borderRadius: "20px",
+            padding: "16px",
+            margin: "0 16px 16px 16px",
+            boxShadow: "0px 2px 8px rgba(0,0,0,0.03)",
+        },
+        filtersWrap: {
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "10px",
+        },
+        filterChip: (isActive) => ({
+            padding: "8px 18px",
+            borderRadius: "50px",
             fontSize: "14px",
             fontWeight: 600,
             cursor: "pointer",
             background: isActive ? JAUNE : "#F5F5F5",
-            color: isActive ? "#1A1A1A" : "#555", // Texte noir sur jaune pour la lisibilité
-            border: isActive ? `1px solid ${JAUNE}` : "1px solid #EAEAEA",
+            color: isActive ? "#1A1A1A" : "#555",
+            border: isActive ? `1.5px solid ${JAUNE}` : "1.5px solid #EAEAEA",
+            transition: "all 0.15s ease",
+            whiteSpace: "nowrap",
+        }),
+        content: {
+            padding: "0 16px 24px 16px",
+        },
+        card: {
+            background: "#FFF",
+            borderRadius: "20px",
+            padding: "20px",
+            marginBottom: "14px",
+            boxShadow: "0px 2px 8px rgba(0,0,0,0.03)",
+            cursor: "pointer",
+            transition: "transform 0.15s ease, box-shadow 0.15s ease",
+        },
+        cardHeader: {
             display: "flex",
             alignItems: "center",
-            gap: "6px",
-            transition: "all 0.2s ease"
-        }),
-
-        card: { background: "#FFF", borderRadius: "16px", padding: "24px", marginBottom: "16px", boxShadow: "0px 2px 10px rgba(0,0,0,0.02)" },
-        cardHeader: { display: "flex", alignItems: "center", gap: "10px", marginBottom: "16px", flexWrap: "wrap" },
-        
-        typeBadge: { 
-            background: "#F1E8D9", 
-            color: JAUNE, // Le texte du badge de type passe aussi en jaune
-            padding: "6px 14px", 
-            borderRadius: "20px", 
-            fontSize: "11px", 
-            fontWeight: 800,
-            textTransform: "uppercase",
-            letterSpacing: "0.5px"
+            gap: "10px",
+            marginBottom: "14px",
         },
-        
-        badgeOrange: { background: ORANGE, color: "#FFF", padding: "6px 14px", borderRadius: "20px", fontSize: "11px", fontWeight: 700 },
-        
-        title: { fontSize: "18px", fontWeight: 700, color: TEXT, margin: "0 0 12px 0", lineHeight: 1.3 },
-        description: { fontSize: "14px", color: MUTED, lineHeight: 1.5, margin: "0 0 20px 0" },
-        tagsWrap: { display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "24px" },
-        tagGray: { background: "#F5F5F5", color: "#555", padding: "8px 14px", borderRadius: "16px", fontSize: "12px", fontWeight: 500 },
-        infoList: { display: "flex", flexDirection: "column", gap: "12px", borderTop: "1px solid #EAEAEA", paddingTop: "16px" },
-        infoItem: { display: "flex", alignItems: "center", gap: "8px", fontSize: "13px", color: MUTED },
-        link: { color: "#4A90E2", textDecoration: "none", fontWeight: 500, display: "flex", alignItems: "center", gap: "6px" }
+        cardIcon: {
+            width: 40,
+            height: 40,
+            borderRadius: "50%",
+            background: "#F5EDD8",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "18px",
+            flexShrink: 0,
+        },
+        typeBadge: {
+            background: "#F5EDD8",
+            color: "#C49A2A",
+            padding: "6px 14px",
+            borderRadius: "50px",
+            fontSize: "12px",
+            fontWeight: 700,
+        },
+        title: {
+            fontSize: "18px",
+            fontWeight: 700,
+            color: TEXT,
+            margin: "0 0 10px 0",
+            lineHeight: 1.3,
+        },
+        description: {
+            fontSize: "14px",
+            color: MUTED,
+            lineHeight: 1.55,
+            margin: "0 0 16px 0",
+        },
+        tagsWrap: {
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "8px",
+            marginBottom: "20px",
+        },
+        tagGray: {
+            background: "#F5F5F5",
+            color: "#444",
+            padding: "7px 14px",
+            borderRadius: "50px",
+            fontSize: "13px",
+            fontWeight: 500,
+        },
+        divider: {
+            borderTop: "1px solid #F0EEEA",
+            paddingTop: "16px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+        },
+        infoItem: {
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            fontSize: "14px",
+            color: MUTED,
+        },
     }
 
-    if (status === "loading") return <div style={{...s.container, textAlign: "center", color: MUTED, paddingTop: 40}}>Chargement...</div>
-    if (status === "error") return <div style={{...s.container, textAlign: "center", color: "red", paddingTop: 40}}>Erreur Airtable.</div>
+    if (status === "loading")
+        return (
+            <div
+                style={{
+                    ...s.container,
+                    textAlign: "center",
+                    color: MUTED,
+                    paddingTop: 60,
+                }}
+            >
+                Chargement...
+            </div>
+        )
+    if (status === "error")
+        return (
+            <div
+                style={{
+                    ...s.container,
+                    textAlign: "center",
+                    color: "red",
+                    paddingTop: 60,
+                }}
+            >
+                Erreur Airtable.
+            </div>
+        )
 
     return (
         <div style={s.container}>
             <div style={s.filtersContainer}>
                 <div style={s.filtersWrap}>
-                    {FILTERS.map(filter => (
-                        <div 
-                            key={filter.label} 
+                    {FILTERS.map((filter) => (
+                        <div
+                            key={filter.label}
                             style={s.filterChip(activeFilter === filter.label)}
                             onClick={() => setActiveFilter(filter.label)}
                         >
-                            {filter.icon && <span>{filter.icon}</span>}
                             {filter.label}
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div>
-                {filteredResources.map(res => (
-                    <div key={res.id} style={s.card}>
+            <div style={s.content}>
+                {filteredResources.map((res) => (
+                    <div
+                        key={res.id}
+                        style={s.card}
+                        onClick={() => {
+                            const slug = toSlug(res.titre)
+                            window.location.href = `/ressources/${slug}`
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = "translateY(-2px)"
+                            e.currentTarget.style.boxShadow =
+                                "0px 6px 20px rgba(0,0,0,0.08)"
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = "translateY(0)"
+                            e.currentTarget.style.boxShadow =
+                                "0px 2px 8px rgba(0,0,0,0.03)"
+                        }}
+                    >
                         <div style={s.cardHeader}>
+                            <div style={s.cardIcon}>
+                                {iconForType(res.typeContenu)}
+                            </div>
                             <span style={s.typeBadge}>{res.typeContenu}</span>
-                            {res.statut && !res.statut.toLowerCase().includes("publier") && (
-                                <span style={s.badgeOrange}>{res.statut}</span>
-                            )}
                         </div>
-                        
                         <h3 style={s.title}>{res.titre}</h3>
                         <p style={s.description}>{res.description}</p>
-                        
                         <div style={s.tagsWrap}>
                             {res.tags.map((tag, i) => (
-                                <span key={i} style={s.tagGray}>{tag}</span>
+                                <span key={i} style={s.tagGray}>
+                                    {tag}
+                                </span>
                             ))}
                         </div>
-                        
-                        <div style={s.infoList}>
+                        <div style={s.divider}>
                             <div style={s.infoItem}>📍 {res.lieu}</div>
                             <div style={s.infoItem}>🕒 {res.horaires}</div>
-                            {res.sourceURL && (
-                                <div style={s.infoItem}>
-                                    <a href={res.sourceURL} target="_blank" rel="noopener noreferrer" style={s.link}>
-                                        ↗ Visiter le site web
-                                    </a>
-                                </div>
-                            )}
                         </div>
                     </div>
                 ))}
@@ -173,6 +343,14 @@ export default function ResourceCenter({ accentColor, activeFilterColor }) {
 }
 
 addPropertyControls(ResourceCenter, {
-    accentColor: { type: ControlType.Color, title: "Couleur Badge Orange", defaultValue: "#D8A03E" },
-    activeFilterColor: { type: ControlType.Color, title: "Couleur Active (Jaune)", defaultValue: "#E6AD1A" },
+    accentColor: {
+        type: ControlType.Color,
+        title: "Couleur Badge Orange",
+        defaultValue: "#D8A03E",
+    },
+    activeFilterColor: {
+        type: ControlType.Color,
+        title: "Couleur Active (Jaune)",
+        defaultValue: "#E6AD1A",
+    },
 })
